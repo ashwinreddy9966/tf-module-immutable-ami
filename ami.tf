@@ -1,5 +1,5 @@
 resource "aws_ami_from_instance" "ami" {
-  name               = "terraform-example"
-  source_instance_id = "i-xxxxxxxx"
+  name               = "${var.COMPONENT}-${var.APP_VERSION}"
+  source_instance_id = aws_instance.ami-instance.id
   depends_on         = [null_resource.app-deploy]
 }
