@@ -4,8 +4,10 @@ resource "aws_ami_from_instance" "ami" {
   depends_on         = [null_resource.app-deploy]
 
   tags  = {
-    Name        = "${var.COMPONENT}-${var.APP_VERSION}"
-    COMPONENT   = ${var.COMPONENT}
-    APP_VERSION = var.APP_VERSION
+    Name               = "${var.COMPONENT}-${var.APP_VERSION}"
+    COMPONENT          = var.COMPONENT
+    APP_VERSION        = var.APP_VERSION
+    prometheus-monitor = "yes"
+
   }
 }
