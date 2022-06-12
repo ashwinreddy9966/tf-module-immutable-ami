@@ -2,7 +2,7 @@ resource "aws_instance" "ami-instance" {
   ami                     = data.aws_ami.ami.id
   instance_type           = "t3.micro"
   vpc_security_group_ids  = [aws_security_group.allows_ssh.id]
-  iam_instance_profile    = "arn:aws:iam::834725375088:instance-profile/dev_instance_profile"
+  iam_instance_profile    = "dev_instance_profile"
 }
 
 resource "null_resource" "app-deploy" {
